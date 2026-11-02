@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="VTP VLAN Trunking Protocol" version="1" scripttimeout="300" lock="0" author="Ibrahim Resul Ercüment">
+  <topology>
+    <nodes>
+      <node id="1" name="SW1-Server" type="qemu" template="viosl2" image="viosl2-adventerprisek9-m.ssa.high_iron_20200929" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="5258d850-01e9-43b7-926f-91dc65f71d50" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L2-Generic-S.svg" config="0" left="177" top="357">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="SW2-Transparent" type="qemu" template="viosl2" image="viosl2-adventerprisek9-m.ssa.high_iron_20200929" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="983aa5bf-abac-4312-9332-73ead29b474d" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L2-Generic-S.svg" config="0" left="330" top="225">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="1"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="2"/>
+      </node>
+      <node id="3" name="SW3-Client" type="qemu" template="viosl2" image="viosl2-adventerprisek9-m.ssa.high_iron_20200929" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="885c933f-a169-467c-b02c-871ff4c09109" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L2-Generic-S.svg" config="0" left="510" top="357">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-SW1-Serveriface_0" left="183" top="394" visibility="0" icon="lan.png"/>
+      <network id="2" type="bridge" name="Net-SW2-Transparentiface_1" left="390" top="394" visibility="0" icon="lan.png"/>
+    </networks>
+  </topology>
+</lab>
